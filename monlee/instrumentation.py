@@ -1,5 +1,4 @@
-from struct import pack
-from tkinter import Frame, Tk, Label, Button, Toplevel, Wm, messagebox
+from tkinter import Entry, Frame, Tk, Label, Button, Toplevel, Wm, messagebox
 
 
     
@@ -7,28 +6,81 @@ def window_measurements():
      ventana_home = Toplevel()
      ventana_home.title("MEASUREMENTS")
      ventana_home.geometry("500x400")
-     boton_in_mesurements = Button(ventana_home, text='PRUEBA', fg="black", bg="gray")
-     boton_in_mesurements.place(relx=0.10, rely=0.1, relwidth=0.15, relheight=0.08)
-    
+     
+
 def window_configuration():
     ventana_configuration = Toplevel()
     ventana_configuration.title("CONFIGURATION")
-    ventana_configuration.geometry("500x400")
-    boton_in_mesurements = Button(ventana_configuration, text='PRUEBA', fg="black", bg="gray")
-    boton_in_mesurements.place(relx=0.10, rely=0.1, relwidth=0.15, relheight=0.08)
+    ventana_configuration.geometry("700x600")
+    #pH
+    textoPh = Label(ventana_configuration, text = "pH")
+    textoPh.place(relx=0.10, rely=0.1, relwidth=0.3, relheight=0.08)
+    caja_pH = Entry(ventana_configuration)
+    caja_pH.place(relx=0.5, rely=0.1, relwidth=0.1, relheight=0.06)
+    boton_set_pH = Button(ventana_configuration, text='Guardar pH', fg="black", bg="gray")
+    boton_set_pH.place(relx=0.7, rely=0.1, relwidth=0.16, relheight=0.06)
+
+    #Temperatura del agua
+    textoTempagua = Label(ventana_configuration, text = "Temperatura del agua")
+    textoTempagua.place(relx=0.10, rely=0.2, relwidth=0.3, relheight=0.08)
+    caja_Tempagua = Entry(ventana_configuration)
+    caja_Tempagua.place(relx=0.5, rely=0.2, relwidth=0.1, relheight=0.06)
+    boton_set_Temagua = Button(ventana_configuration, text='Guardar T.Agua', fg="black", bg="gray")
+    boton_set_Temagua.place(relx=0.7, rely=0.2, relwidth=0.16, relheight=0.06)
+
+    #Conductividad eléctrica
+    textoConduc = Label(ventana_configuration, text = "Conductividad")
+    textoConduc.place(relx=0.10, rely=0.3, relwidth=0.3, relheight=0.08)
+    caja_Conduc = Entry(ventana_configuration)
+    caja_Conduc.place(relx=0.5, rely=0.3, relwidth=0.1, relheight=0.06)
+    boton_set_Conduc = Button(ventana_configuration, text='Guardar Conduct', fg="black", bg="gray")
+    boton_set_Conduc.place(relx=0.7, rely=0.3, relwidth=0.16, relheight=0.06)
+
+    #Caudal de laa bomba
+    textoCaudal = Label(ventana_configuration, text = "Caudal")
+    textoCaudal.place(relx=0.10, rely=0.4, relwidth=0.3, relheight=0.08)
+    caja_Coaudal = Entry(ventana_configuration)
+    caja_Coaudal.place(relx=0.5, rely=0.4, relwidth=0.1, relheight=0.06)
+    boton_set_Caudal = Button(ventana_configuration, text='Guardar Caudal', fg="black", bg="gray")
+    boton_set_Caudal.place(relx=0.7, rely=0.4, relwidth=0.16, relheight=0.06)
+
+    #Temperatura del ambiente
+    textoTempambiente = Label(ventana_configuration, text = "Temperatura ambiente")
+    textoTempambiente.place(relx=0.10, rely=0.5, relwidth=0.3, relheight=0.08)
+    caja_Temambiente = Entry(ventana_configuration)
+    caja_Temambiente.place(relx=0.5, rely=0.5, relwidth=0.1, relheight=0.06)
+    boton_set_Teambiente = Button(ventana_configuration, text='Guardar T.Ambiente', fg="black", bg="gray")
+    boton_set_Teambiente.place(relx=0.7, rely=0.5, relwidth=0.16, relheight=0.06)
+
+    #Humedad del ambiente
+    textohumedad = Label(ventana_configuration, text = "Humedad relativa")
+    textohumedad.place(relx=0.10, rely=0.6, relwidth=0.3, relheight=0.08)
+    caja_humedad = Entry(ventana_configuration)
+    caja_humedad.place(relx=0.5, rely=0.6, relwidth=0.1, relheight=0.06)
+    boton_set_humedad = Button(ventana_configuration, text='Guardar humedad', fg="black", bg="gray")
+    boton_set_humedad.place(relx=0.7, rely=0.6, relwidth=0.16, relheight=0.06)
+
+     #Nivels de C02 dentro del cultivo
+    textoC02 = Label(ventana_configuration, text = "Niveles de Co2")
+    textoC02.place(relx=0.10, rely=0.7, relwidth=0.3, relheight=0.08)
+    caja_CO2 = Entry(ventana_configuration)
+    caja_CO2.place(relx=0.5, rely=0.7, relwidth=0.1, relheight=0.06)
+    boton_set_C02 = Button(ventana_configuration, text='Guardar Co2', fg="black", bg="gray")
+    boton_set_C02.place(relx=0.7, rely=0.7, relwidth=0.16, relheight=0.06)
+    
 
 def window_robotArm():
     ventana_robotArm = Toplevel()
     ventana_robotArm.title("ROBOT ARM")
     ventana_robotArm.geometry("500x400")
-    boton_in_mesurements = Button(ventana_robotArm, text='PRUEBA', fg="black", bg="gray")
+    boton_in_mesurements = Button(ventana_robotArm, text='XXXX', fg="black", bg="gray")
     boton_in_mesurements.place(relx=0.10, rely=0.1, relwidth=0.15, relheight=0.08)
 
 def window_scara():
     ventana_scara = Toplevel()
     ventana_scara.title("SCARA")
     ventana_scara.geometry("500x400")
-    boton_in_mesurements = Button(ventana_scara, text='PRUEBA', fg="black", bg="gray")
+    boton_in_mesurements = Button(ventana_scara, text='XXX', fg="black", bg="gray")
     boton_in_mesurements.place(relx=0.10, rely=0.1, relwidth=0.15, relheight=0.08)
 
 def window_cnc():
