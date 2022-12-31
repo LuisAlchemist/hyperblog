@@ -1,4 +1,6 @@
 from tkinter import Entry, Frame, Tk, Label, Button, Toplevel, Wm, messagebox
+import serial
+import time
 
 
     
@@ -9,6 +11,7 @@ def window_measurements():
      
 
 def window_configuration():
+
     ventana_configuration = Toplevel()
     ventana_configuration.title("CONFIGURATION")
     ventana_configuration.geometry("700x600")
@@ -67,7 +70,31 @@ def window_configuration():
     caja_CO2.place(relx=0.5, rely=0.7, relwidth=0.1, relheight=0.06)
     boton_set_C02 = Button(ventana_configuration, text='Guardar Co2', fg="black", bg="gray")
     boton_set_C02.place(relx=0.7, rely=0.7, relwidth=0.16, relheight=0.06)
-    
+
+def fn_light_red_Control():
+    cad = 'F720DF'
+    arduino.write(cad.encode('ascii'))
+    print(cad)
+
+def fn_light_green_Control():
+    cad = 'F7A05F'
+    print(cad)
+
+def fn_light_blue_Control():
+    cad = 'F7609F'
+    print(cad)
+
+def window_light():
+    ventana_light = Toplevel()
+    ventana_light.title("LIGHT CONTROL")
+    ventana_light.geometry("500x400")
+    boton_red = Button(ventana_light, text='RED', fg="black", bg="red", command=fn_light_red_Control)
+    boton_red.place(relx=0.10, rely=0.1, relwidth=0.15, relheight=0.08)
+    boton_green = Button(ventana_light, text='GREEN', fg="black", bg="green", command=fn_light_green_Control)
+    boton_green.place(relx=0.1, rely=0.2, relwidth=0.15, relheight=0.08)
+    boton_blue = Button(ventana_light, text='BLUE', fg="black", bg="blue", command=fn_light_blue_Control)
+    boton_blue.place(relx=0.1, rely=0.3, relwidth=0.15, relheight=0.08)
+
 
 def window_robotArm():
     ventana_robotArm = Toplevel()
@@ -97,6 +124,8 @@ class FrameManu(Frame):
             super().__init__(master,width=650, height=350,bg='green')
             self.master = master
             self.pack()
+            self.arduino = serial.Serial("COM3", 9600, timeout = 1.0)
+            time.sleep(1)
             self.create_widgets()
 
     
@@ -121,6 +150,9 @@ class FrameManu(Frame):
             self.btn4.place(relx=0.58, rely=0.1, relwidth=0.15, relheight=0.08)
 
             self.btn5 = Button(self, text='CNC', fg="black", bg="gray", command= window_cnc)
+            self.btn5.place(relx=0.74, rely=0.1, relwidth=0.15, relheight=0.08)
+
+            self.btn5 = Button(self, text='CONTROL LIGHT', fg="black", bg="gray", command= window_light)
             self.btn5.place(relx=0.74, rely=0.1, relwidth=0.15, relheight=0.08)
 
 ventana = Tk()

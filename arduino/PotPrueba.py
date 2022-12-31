@@ -1,7 +1,6 @@
-from cProfile import label
-from dis import dis
 import serial
 import time
+
 
 serialArduino = serial.Serial("COM4", 9600)
 time.sleep(1)
@@ -22,7 +21,5 @@ while True:
     if labael1 == 'HUM':
         print("El valor de la humedad es: {}".format(value))
 
-
-
-    #print(cad)
     print("***************")
+
