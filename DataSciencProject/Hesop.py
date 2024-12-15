@@ -3,10 +3,15 @@ import pyautogui
 import time
 import pygetwindow as gw
 
-os.startfile('C:\Kinco\Kinco HMIware v2.5\Kinco HMIware.exe')
+os.startfile("C:\Program Files\FileZilla FTP Client\Filezilla.exe")
 time.sleep(3)
 
 
-window = gw.getWindowsWithTitle("Kinco HMIware")[0]
+window = gw.getWindowsWithTitle("FileZilla")[0]
 window.activate()
-pyautogui.press('enter') #press enter key
+pyautogui.write('192.180.40.200') #write the IP Addrees
+pyautogui.press('tab') #press tab to write UserName
+pyautogui.write('datastorage') #write UserName
+pyautogui.press('tab') #press tab to write Password
+pyautogui.write('datadownload')
+pyautogui.press('enter') #press enter
